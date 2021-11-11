@@ -1,0 +1,33 @@
+<div class="container">
+
+  <!-- <p [ngClass]="['my-border', 'my-feature']">Some cool content here</p> -->
+  <button class="btn btn-sm btn-primary" (click)="onToggleClasses()">Toggle Classes</button>
+
+  <p [ngClass]="myDynamicClass">Some cool content here</p>
+  <p [ngStyle]="myDynamicStyle"> This will show ngStyle Demo</p>
+
+<ul class="list-group">
+  <li class="list-group-item"
+    *ngFor="let user of users;index as i;first as isFirst;even as isEven;"
+    [ngClass]="{'my-border' : isEven}">
+    <!-- <div class="row">
+      <div class="col-12">
+        Index : {{ i }} || Is this First : {{ isFirst }} || Is this Even : {{ isEven }}
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-3">
+        <app-user-img [user]="user" (childEvent)="onMoreInfo($event)"></app-user-img>
+      </div>
+      <div class="col-9">
+        <app-user-info [user]="user">
+          <!-- <header>Header Info</header>
+          <main class="main-content">Main Content</main>
+          <footer>Footer Info</footer> -->
+        </app-user-info>
+      </div>
+    </div>
+
+  </li>
+</ul>
+</div>

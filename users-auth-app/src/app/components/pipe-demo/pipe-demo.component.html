@@ -1,0 +1,32 @@
+<div class="container">
+<p class="display-4">Pipe Demo Component</p>
+
+<h5>Promise value : {{ promise | async | reverse}} </h5>
+<br>
+<h5>Contact Number : {{ contactNumber | countryCode}} </h5>
+
+<div class="row">
+  <div class="col-6">
+    <select class="form-control" [(ngModel)]="filteredStatus">
+      <option value="completed">Completed Task</option>
+      <option value="pending">Pending Task</option>
+    </select>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-sm btn-primary btn-block" (click)="onAddItem()">
+      Add New Todo
+    </button>
+  </div>
+</div>
+
+<br>
+<ul class="list-group">
+  <li class="list-group-item"
+    *ngFor="let todo of todoCollection | filter : filteredStatus">
+    {{todo.label | uppercase}}
+    <span class="badge badge-primary float-right">
+      {{todo.status}}
+    </span>
+  </li>
+</ul>
+</div>
